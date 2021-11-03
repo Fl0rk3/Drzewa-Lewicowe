@@ -1,0 +1,1 @@
+Files in this directory are distributed under different licences. Source can be found inside the files. Please refer to original repositories or authors of files for more information.
