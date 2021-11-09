@@ -11,7 +11,7 @@ type 'a queue =
 ;;
 
 (* 
-    Empty = Legia Warszawa, puste jak wyniki Legii w ostatnich meczach :v
+    Empty = Legia Warszawa, po ostatnich wynikach, to aż samo się narzuca, żeby tak nazwać empty :v
 *)
 
 exception Empty;;
@@ -36,14 +36,14 @@ let rec join l_tree r_tree =
             join r_tree l_tree
         else
             let merge = join lewica.right_tree r_tree in (* merge = nowy lewica.right_tree *)
-            let l_deep = get_deep merge and r_deep = get_deep lewica.left_tree in
+            let merge_deep = get_deep merge and r_deep = get_deep lewica.left_tree in
             if is_empty lewica.left_tree then (* sprawdzenie czy lewe poddrzewo jest puste *)
                 Node{left_tree = merge; right_tree = lewica.left_tree; value = lewica.value; deep = 0}
             else
-                if l_deep > r_deep then (* sprawdzenie, które poddrzewo jest głębsze *)
-                    Node{left_tree = merge; right_tree = lewica.left_tree; value = lewica.value; deep = lewica.deep+1}
+                if merge_deep > r_deep then (* sprawdzenie, które poddrzewo jest głębsze *)
+                    Node{left_tree = merge; right_tree = lewica.left_tree; value = lewica.value; deep = r_deep+1}
                 else
-                    Node{left_tree = lewica.left_tree; right_tree = merge; value = lewica.value; deep = lewica.deep+1}
+                    Node{left_tree = lewica.left_tree; right_tree = merge; value = lewica.value; deep = r_deep+1}
 ;;
 
 let delete_min kolejka = 
