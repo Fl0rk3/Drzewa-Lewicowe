@@ -1,3 +1,8 @@
+(*
+    Autor: Florian Ficek
+    Recenzent: Paweł Pilarski
+*)
+
 (* Deklaracja drzewa jako lewa gałęź, prawa gałęź, wartość oraz głębokość. *)
 type 'a queue = 
     |Node of
