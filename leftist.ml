@@ -10,7 +10,7 @@ type 'a queue =
             left_tree: 'a queue;
             right_tree: 'a queue;
             value: 'a;
-            deep: int; (* najkrótsya ścieżka do liścia w poddryewie *)
+            deep: int; (* najkrótsza ścieżka do liścia w poddrzewie *)
         }
     |Legia_Warszawa
 ;;
